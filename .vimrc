@@ -1,12 +1,15 @@
 " mkdir ~/.vim/undodir -p
+" For copying text hold shift and drag over text and use ctrl+shift+c to copy
 " :source %
 " Install vim plug https://github.com/junegunn/vim-plug
 " :PlugInstall
+" Also use :CocInstall for certain Coc Plugins
 syntax on
 
+set relativenumber
 set noerrorbells
-set tabstop=4 softtabstop=4
-set shiftwidth=4
+set tabstop=2 softtabstop=2
+set shiftwidth=2
 set expandtab
 set smartindent
 set nu
@@ -18,10 +21,11 @@ set undofile
 set incsearch
 set pumheight=10
 set hidden
-set clipboard=unnamedplus
 set noshowmode
 set mouse=a
 set backupcopy=yes
+" Press F3 to get in paste mode
+set pastetoggle=<F3>
 
 call plug#begin('~/.vim/plugged')
 
@@ -36,14 +40,15 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 Plug '~/.fzf'
-Plug 'yuttie/comfortable-motion.vim'
-Plug 'vim-airline/vim-airline' 
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'alvan/vim-closetag'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'justinmk/vim-sneak'
 
 " Git Tooling
 Plug 'mhinz/vim-signify' " Sign Columns
@@ -54,9 +59,15 @@ Plug 'junegunn/gv.vim' " Git commit browser
 
 call plug#end()
 
-" Appereance 
+" Appereance
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 hi VertSplit ctermfg=Black ctermbg=DarkGray
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
 
 let g:airline_theme='lucius'
 let g:airline_powerline_fonts = 1
@@ -65,6 +76,8 @@ let g:airline_solarized_bg='dark'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
+set showtabline=2
+
 set background=dark
 set t_Co=256
 set fillchars+=vert:\│
@@ -72,7 +85,11 @@ set cmdheight=2
 
 let g:airline_section_z = '%{coc#status()}'
 
-" ripgrep  
+" ctrl + p looks nice now :D
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
+
+" ripgrep
 if executable('rg')
     let g:rg_derive_root='true'
 endif
@@ -108,18 +125,25 @@ nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <Leader>s :Rg<SPACE>
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
+" TAB in general mode will move to text buffer
+nnoremap <silent> <TAB> :bnext<CR>
+" SHIFT-TAB will go back
+nnoremap <silent> <S-TAB> :bprevious<CR>
+
 " Better Tabbing
 vnoremap < <gv
 vnoremap > >gv
 
 " Better Window Navigation
-nnoremap <C-h> <C-w>h 
+nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+source $VIMRUNTIME/mswin.vim
 
 " --- CONFIGS ---
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
@@ -153,9 +177,9 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
   \ 'coc-tsserver',
-  \ 'coc-eslint', 
-  \ 'coc-prettier', 
-  \ 'coc-json', 
+  \ 'coc-eslint',
+  \ 'coc-prettier',
+  \ 'coc-json',
   \ ]
 
 " from readme
@@ -164,11 +188,11 @@ set hidden " Some servers have issues with backup files, see #649 set nobackup s
 set updatetime=300"
 
 " Signify Config
-autocmd vimenter * SignifyToggle " Don't start Signify when Vim starts 
+autocmd vimenter * SignifyToggle " Don't start Signify when Vim starts
 
 " Autoclose Tags
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml, *.js'
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx, *.tsx, *.js'
 let g:closetag_filetypes = 'html,xhtml,phtml'
 let g:closetag_xhtml_filetypes = 'xhtml,jsx'
 let g:closetag_emptyTags_caseSensitive = 1
@@ -179,3 +203,19 @@ let g:closetag_regions = {
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
+" Sneak
+let g:sneak#label = 1
+
+" case insensitive sneak
+let g:sneak#use_ic_scs = 1
+
+" immediately move to the next instance of search, if you move the cursor sneak is back to default behavior
+let g:sneak#s_next = 1
+
+" remap so I can use , and ; with f and t
+map gS <Plug>Sneak_,
+map gs <Plug>Sneak_;
+
+" Change the colors
+highlight Sneak guifg=black guibg=#00C7DF ctermfg=black ctermbg=cyan
+highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
