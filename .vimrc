@@ -191,7 +191,7 @@ set updatetime=300"
 autocmd vimenter * SignifyToggle " Don't start Signify when Vim starts
 
 " Autoclose Tags
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml, *.jsx, *.js, *.tsx'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx, *.tsx, *.js'
 let g:closetag_filetypes = 'html,xhtml,phtml'
 let g:closetag_xhtml_filetypes = 'xhtml,jsx'
