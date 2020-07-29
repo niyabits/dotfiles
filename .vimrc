@@ -1,9 +1,8 @@
-" mkdir ~/.vim/undodir -p
+"any  mkdir ~/.vim/undodir -p
 " For copying text hold shift and drag over text and use ctrl+shift+c to copy
 " :source %
 " Install vim plug https://github.com/junegunn/vim-plug
 " :PlugInstall
-" Also use :CocInstall for certain Coc Plugins
 syntax on
 
 set relativenumber
@@ -26,8 +25,12 @@ set mouse=a
 set backupcopy=yes
 " Press F3 to get in paste mode
 set pastetoggle=<F3>
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
 
 call plug#begin('~/.vim/plugged')
+
+Plug 'haishanh/night-owl.vim'
 
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -46,9 +49,10 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'alvan/vim-closetag'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'justinmk/vim-sneak'
+Plug 'preservim/nerdcommenter'
+Plug 'alvan/vim-closetag'
 
 " Git Tooling
 Plug 'mhinz/vim-signify' " Sign Columns
@@ -56,10 +60,18 @@ Plug 'tpope/vim-fugitive' " Run `:git` commands
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim' " Git commit browser
 
-
 call plug#end()
 
 " Appereance
+" Night Owl
+" If you have vim >=8.0 or Neovim >= 0.1.5
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+syntax enable
+colorscheme night-owl
+
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 hi VertSplit ctermfg=Black ctermbg=DarkGray
 
@@ -69,7 +81,9 @@ let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
 
-let g:airline_theme='lucius'
+" Use 'lucius' if not using a color theme in Vim
+" When using NightOwl use biogoo theme
+let g:airline_theme='biogoo'
 let g:airline_powerline_fonts = 1
 let g:airline_solarized_bg='dark'
 
@@ -129,6 +143,8 @@ nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 nnoremap <silent> <TAB> :bnext<CR>
 " SHIFT-TAB will go back
 nnoremap <silent> <S-TAB> :bprevious<CR>
+" Close buffer with ctrl+w
+nnoremap <silent> <C-TAB> :bd<CR>
 
 " Better Tabbing
 vnoremap < <gv
@@ -153,7 +169,9 @@ let g:airline#extensions#coc#enabled = 1
 "  Prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-" Auto Completion
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -161,20 +179,33 @@ inoremap <silent><expr> <TAB>
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-      let col = col('.') - 1
-        return !col || getline('.')[col - 1]  =~# '\s'
-    endfunction
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " Use <c-space> to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
 else
-    inoremap <silent><expr> <c-@> coc#refresh()
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
 " Coc config
 let g:coc_global_extensions = [
   \ 'coc-snippets',
+  \ 'coc-emmet',
+  \ 'coc-css',
+  \ 'coc-json',
+  \ 'coc-html',
   \ 'coc-pairs',
   \ 'coc-tsserver',
   \ 'coc-eslint',
@@ -185,23 +216,10 @@ let g:coc_global_extensions = [
 " from readme
 " if hidden is not set, TextEdit might fail
 set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300"
+set updatetime=300
 
 " Signify Config
 autocmd vimenter * SignifyToggle " Don't start Signify when Vim starts
-
-" Autoclose Tags
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml, *.jsx, *.js, *.tsx'
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx, *.tsx, *.js'
-let g:closetag_filetypes = 'html,xhtml,phtml'
-let g:closetag_xhtml_filetypes = 'xhtml,jsx'
-let g:closetag_emptyTags_caseSensitive = 1
-let g:closetag_regions = {
-    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-    \ 'javascript.jsx': 'jsxRegion',
-    \ }
-let g:closetag_shortcut = '>'
-let g:closetag_close_shortcut = '<leader>>'
 
 " Sneak
 let g:sneak#label = 1
@@ -219,3 +237,22 @@ map gs <Plug>Sneak_;
 " Change the colors
 highlight Sneak guifg=black guibg=#00C7DF ctermfg=black ctermbg=cyan
 highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
+
+" NERDcommentor
+" Remap comment key
+nmap <C-_> <plug>NERDCommenterToggle
+vmap <C-_> <plug>NERDCommenterToggle
+
+" Autoclose Tags
+" Autoclose Tags
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml, *.jsx, *.js, *.tsx'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx, *.tsx, *.js'
+let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ }
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
