@@ -31,7 +31,6 @@ set shortmess+=c
 call plug#begin('~/.vim/plugged')
 
 Plug 'haishanh/night-owl.vim'
-
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'liuchengxu/vim-which-key'
@@ -109,11 +108,6 @@ if executable('rg')
 endif
 
 let mapleader = " "
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-let g:netrw_browse_split = 2
-let g:netrw_banner = 0
-let g:netrw_winsize = 25
-let g:ctrlp_use_caching = 0
 
 :nmap <C-e> :CocCommand explorer<CR>
 " GoTo code navigation.
@@ -129,7 +123,7 @@ nnoremap <M-h> :vertical resize -2<CR>
 nnoremap <M-l> :vertical resize +2<CR>
 
 nnoremap <C-c> <Esc>
-nnoremap <C-p> :Files<Cr>
+nnoremap <C-p> :GFiles<Cr>
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
