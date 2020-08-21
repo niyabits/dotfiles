@@ -52,9 +52,11 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'justinmk/vim-sneak'
 Plug 'preservim/nerdcommenter'
 Plug 'alvan/vim-closetag'
+Plug 'unblevable/quick-scope'
+Plug 'jparise/vim-graphql'
 
 " Git Tooling
-Plug 'mhinz/vim-signify' " Sign Columns
+" Plug 'mhinz/vim-signify' " Sign Columns
 Plug 'tpope/vim-fugitive' " Run `:git` commands
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim' " Git commit browser
@@ -123,7 +125,7 @@ nnoremap <M-h> :vertical resize -2<CR>
 nnoremap <M-l> :vertical resize +2<CR>
 
 nnoremap <C-c> <Esc>
-nnoremap <C-p> :GFiles<Cr>
+nnoremap <C-p> :Files<Cr>
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
@@ -138,7 +140,7 @@ nnoremap <silent> <TAB> :bnext<CR>
 " SHIFT-TAB will go back
 nnoremap <silent> <S-TAB> :bprevious<CR>
 " Close buffer with ctrl+w
-nnoremap <silent> <C-TAB> :bd<CR>
+nnoremap <silent> <C-w> :bd<CR>
 
 " Better Tabbing
 vnoremap < <gv
@@ -153,10 +155,22 @@ nnoremap <C-l> <C-w>l
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+
+" Move lines up and down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
 source $VIMRUNTIME/mswin.vim
 
 " --- CONFIGS ---
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+" Don't search for node_modules and things when using ctrl+p
+  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 let g:airline#extensions#coc#enabled = 1
 
@@ -213,7 +227,7 @@ set hidden " Some servers have issues with backup files, see #649 set nobackup s
 set updatetime=300
 
 " Signify Config
-autocmd vimenter * SignifyToggle " Don't start Signify when Vim starts
+" autocmd vimenter * SignifyToggle " Don't start Signify when Vim starts
 
 " Sneak
 let g:sneak#label = 1
@@ -249,4 +263,10 @@ let g:closetag_regions = {
     \ 'javascript.jsx': 'jsxRegion',
     \ }
 let g:closetag_shortcut = '>'
-let g:closetag_close_shortcut = '<leader>>'
+" let g:closetag_close_shortcut = '<leader>>'
+
+" Vim Quickscope Config
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+let g:qs_max_chars=150
