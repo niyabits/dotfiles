@@ -1,8 +1,9 @@
-"any  mkdir ~/.vim/undodir -p
 " For copying text hold shift and drag over text and use ctrl+shift+c to copy
-" :source %
 " Install vim plug https://github.com/junegunn/vim-plug
+" mkdir ~/.vim/undodir -p
+" :source %
 " :PlugInstall
+
 syntax on
 
 set relativenumber
@@ -30,94 +31,73 @@ set autoindent
 set signcolumn=yes
 set nohlsearch
 set scrolloff=8
-" Press F3 to get in paste mode
-set pastetoggle=<F3>
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
+set pastetoggle=<F3> " F3 for Paste Mode
+set shortmess+=c 
+set hidden 
+set updatetime=300
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'haishanh/night-owl.vim'
-Plug 'preservim/nerdtree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'liuchengxu/vim-which-key'
-Plug 'jremmen/vim-ripgrep'
-Plug 'leafgarland/typescript-vim'
-Plug 'vim-utils/vim-man'
-Plug 'mbbill/undotree'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'airblade/vim-rooter'
-Plug '~/.fzf'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'justinmk/vim-sneak'
-Plug 'preservim/nerdcommenter'
-Plug 'alvan/vim-closetag'
-Plug 'unblevable/quick-scope'
-Plug 'jparise/vim-graphql'
-" Themes
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-Plug 'haishanh/night-owl.vim'
-Plug 'bluz71/vim-nightfly-guicolors'
-Plug 'ghifarit53/tokyonight-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}         " VSCode like features
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }   
+Plug 'maxmellon/vim-jsx-pretty'                         " Pretty JSX
+Plug 'jparise/vim-graphql'                              " GraphQL Syntax Highlighting with Vim
+Plug 'pantharshit00/vim-prisma'                         " Prisma Syntax Highlighting and Autocomplete
 
-Plug 'pangloss/vim-javascript'    " JavaScript support
-Plug 'leafgarland/typescript-vim' " TypeScript syntax
-Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
+" Plug 'HerringtonDarkholme/yats.vim'                   " Syntax Highlighting for TypeScript
+" Plug 'leafgarland/typescript-vim'                     " TypeScript settings 
+" Plug 'yuezk/vim-js'                                   " Syntax Highlighting 
 
-Plug 'metakirby5/codi.vim'
-Plug 'mhinz/vim-startify'
-Plug 'pantharshit00/vim-prisma'
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+Plug 'liuchengxu/vim-which-key'                         " Don't forget vim shortcut keys
+Plug 'jremmen/vim-ripgrep'                              " Search faster :Rg command
+Plug 'vim-utils/vim-man'                                " View man pages in Vim :Man
+Plug 'mbbill/undotree'                                  " A log of undo changes
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " Fuzzy Searcher
+Plug 'junegunn/fzf.vim'                                 " Fuzzy Searcher *
+Plug '~/.fzf'                                           " More Fuzzzy
+Plug 'airblade/vim-rooter'                              " Opens projects in rot directory
+Plug 'vim-airline/vim-airline'                          " Beautiful bottom line
+Plug 'vim-airline/vim-airline-themes'                   " Themes for beautiful lines
+Plug 'ryanoasis/vim-devicons'                           " Beautiful icons
+Plug 'justinmk/vim-sneak'                               " Use `s` to navigate faster
+Plug 'preservim/nerdcommenter'                          " Comment Things Faster 
+Plug 'alvan/vim-closetag'                               " Auto Close HTML and JSX Tags
+Plug 'unblevable/quick-scope'                           " Faster `f` movement
 
-" Epic Syntax Highlighting
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-" Use :TSInstall <Language> to Install the Parser for the language
+Plug 'mhinz/vim-startify'                               " Better Starting screen for Vim
+Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}         " Navigate Linux Filesystem
 
-
-" Codi Config
-" Change the color
-highlight CodiVirtualText guifg=cyan
-
-let g:codi#virtual_text_prefix = "❯ "
-
-
-"
-let g:codi#aliases = {
-                   \ 'javascript.jsx': 'javascript',
-                   \ }
+Plug 'haishanh/night-owl.vim'                           " NightOwl Theme
+Plug 'bluz71/vim-nightfly-guicolors' 										" Nightfly Theme
+Plug 'ghifarit53/tokyonight-vim'												" TokyoNight Theme
 
 " Git Tooling
-" Plug 'mhinz/vim-signify' " Sign Columns
-Plug 'tpope/vim-fugitive' " Run `:git` commands
-Plug 'tpope/vim-rhubarb'
-Plug 'junegunn/gv.vim' " Git commit browser
+Plug 'tpope/vim-fugitive'                               " Run `:git` commands
+Plug 'tpope/vim-rhubarb'                                " :GBrowse to open files in GitHub
+Plug 'junegunn/gv.vim'                                  " Git commit browser
+" Plug 'mhinz/vim-signify'                              " Sign Columns
+
+" Amazing Syntax Highlighting
+" Use :TSInstall <Language> to Install the Parser for the language
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+
+
 
 call plug#end()
 
 " Appereance
-" Night Owl
-" If you have vim >=8.0 or Neovim >= 0.1.5
 if has('nvim') || has('termguicolors')
   set termguicolors
 endif
- 
-" Tokyo Night
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
 
 " colorscheme 
 syntax enable
 colorscheme nightfly 
-" Make background transparent 
-" highlight Normal guibg=none
-
+highlight Normal guibg=none " Transparent Background
+ 
+" Tokyo Night
+let g:tokyonight_style = 'night'                    " available: night, storm
+let g:tokyonight_enable_italic = 1
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 hi VertSplit ctermfg=Black ctermbg=DarkGray
 
@@ -303,10 +283,6 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ ]
 
-" from readme
-" if hidden is not set, TextEdit might fail
-set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
 
 " Signify Config
 " autocmd vimenter * SignifyToggle " Don't start Signify when Vim starts
