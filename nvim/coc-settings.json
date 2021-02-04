@@ -1,4 +1,4 @@
-  {
+{
    "emmet.includeLanguages": {
      "vue-html": "html",
      "javascript": "javascriptreact"
@@ -9,5 +9,6 @@
    "explorer.icon.enableNerdfont": true,
    "explorer.file.showHiddenFiles": true,
    "explorer.previewAction.onHover": false,
-   "prettier.requireConfig": true
+   "prettier.requireConfig": true,
+   "rpc.workspaceElapsedTime": true
  }

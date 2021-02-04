@@ -35,6 +35,7 @@ set pastetoggle=<F3> " F3 for Paste Mode
 set shortmess+=c 
 set hidden 
 set updatetime=300
+set timeoutlen=500
 
 call plug#begin('~/.vim/plugged')
 
@@ -63,7 +64,7 @@ Plug 'justinmk/vim-sneak'                               " Use `s` to navigate fa
 Plug 'preservim/nerdcommenter'                          " Comment Things Faster 
 Plug 'alvan/vim-closetag'                               " Auto Close HTML and JSX Tags
 Plug 'unblevable/quick-scope'                           " Faster `f` movement
-
+Plug 'voldikss/vim-floaterm'
 Plug 'mhinz/vim-startify'                               " Better Starting screen for Vim
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}         " Navigate Linux Filesystem
 
@@ -153,6 +154,7 @@ endif
 let mapleader = " "
 
 :nmap <C-e> :CocCommand explorer<CR>
+
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -187,11 +189,15 @@ nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
+
 " Vertical Split
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>s :Rg<SPACE>
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+
+" Float Term
+nnoremap <leader>tn :CocCommand floaterm.new<CR>
 
 
 nnoremap <C-s> :w<CR> " Alternate way to save
@@ -227,6 +233,7 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
+
 
 source $VIMRUNTIME/mswin.vim
 
@@ -272,15 +279,20 @@ endif
 " Coc config
 let g:coc_global_extensions = [
   \ 'coc-snippets',
+  \ 'coc-prettier',
+  \ 'coc-pairs',
+  \ 'coc-html',
+  \ 'coc-highlight',
+  \ 'coc-explorer',
+  \ 'coc-eslint',
   \ 'coc-emmet',
+  \ 'coc-discord-rpc',
+  \ 'coc-tsserver',
   \ 'coc-css',
   \ 'coc-json',
-  \ 'coc-html',
-  \ 'coc-pairs',
-  \ 'coc-tsserver',
   \ 'coc-eslint',
-  \ 'coc-prettier',
   \ 'coc-json',
+  \ 'coc-floaterm'
   \ ]
 
 
@@ -329,32 +341,5 @@ let g:qs_max_chars=150
 let g:startify_enable_special = 0
 let g:startify_session_persistence = 1
 
-" Startify
-let g:startify_session_autoload = 1
-let g:startify_session_delete_buffers = 1
-let g:startify_change_to_vcs_root = 1
-
-let g:startify_lists = [
-    \ { 'type': 'files',     'header': ['   Files']            },
-    \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
-    \ { 'type': 'sessions',  'header': ['   Sessions']       },
-    \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-  \ ]
-
-let g:startify_bookmarks = [
-    \ { 'i': '~/.config/nvim/init.vim' },
-    \ { 'z': '~/.zshrc' },
-  \ ]
-
-
-let g:startify_custom_header = [
-\ '        _                             __                  ',
-\ ' _   __(_)___ ___     ____ _____     / /_  _______________',
-\ '| | / / / __ `__ \   / __ `/ __ \   / __ \/ ___/ ___/ ___/',
-\ '| |/ / / / / / / /  / /_/ / /_/ /  / /_/ / /  / /  / /    ',
-\ '|___/_/_/ /_/ /_/   \__, /\____/  /_.___/_/  /_/  /_/     ',
-\ '                   /____/                                 ',
-\]
-
-
 source $HOME/.config/nvim/plug-config/rnvimr.vim
+source $HOME/.config/nvim/plug-config/startify.vim
