@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/in0cyg/.oh-my-zsh"
+export ZSH="/home/yash/.oh-my-zsh"
 
 # Theme
 # https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
@@ -12,7 +12,7 @@ ZSH_THEME="avit"
 eval "$(starship init zsh)"
 
 # fnm
-export PATH=/home/in0cyg/.fnm$PATH
+export PATH=/home/yash/.fnm$PATH
 # eval "$(fnm env)"
 
 # Configure fzf for fast search
@@ -37,9 +37,22 @@ source $ZSH/oh-my-zsh.sh
 alias ls="exa"
 alias vi="nvim"
 alias cat="bat"
+alias ps="procs"
+alias lzd="lazydocker"
+alias lzg="lazygit"
+# Brightness for Arch 
+alias b+="blight set +20%"
+alias b-="blight set -20%"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
+
+# fnm
+export PATH=/home/yash/.fnm:$PATH
+eval "`fnm env`"
+
+# DataGrip
+export PATH=/home/yash/apps/DataGrip-2020.3.2/bin$PATH
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -105,5 +118,5 @@ CASE_SENSITIVE="true"
 # export ARCHFLAGS="-arch x86_64"
 
 # fnm
-export PATH=/home/in0cyg/.fnm:$PATH
+export PATH=/home/yash/.fnm:$PATH
 eval "`fnm env`"
