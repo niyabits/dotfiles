@@ -63,7 +63,8 @@ exec --no-startup-id java -Xmx1024m -jar "/opt/xdman/xdman.jar" -m
 # start a terminal #alacritty xfce4-terminal
 bindsym $super+Return exec alacritty 
 bindsym $super+t exec xfce4-terminal
-bindsym $super+Shift+Return exec alacritty --working-directory $(xcwd)
+bindsym $super+Shift+Return	       exec $term --working-directory  $(xcwd)
+# bindsym $super+Shift+Return exec alacritty --working-directory $(xcwd)
 
 # hide/unhide i3status bar
 bindsym $super+m bar mode toggle
