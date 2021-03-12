@@ -1,11 +1,8 @@
 " Coc extensions
 let g:coc_global_extensions = [
-  \ 'coc-snippets',
   \ 'coc-prettier',
   \ 'coc-pairs',
   \ 'coc-html',
-  \ 'coc-highlight',
-  \ 'coc-explorer',
   \ 'coc-pyright',
   \ 'coc-eslint',
   \ 'coc-emmet',

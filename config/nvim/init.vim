@@ -124,6 +124,7 @@ source ~/.config/nvim/plug-config/lsp-config.vim
 source ~/.config/nvim/plug-config/barbar.vim
 source ~/.config/nvim/plug-config/rnvimr.vim
 source ~/.config/nvim/plug-config/nvim-tree.vim
+source ~/.config/nvim/lua/lua-remaps.vim
 
 luafile ~/.config/nvim/lua/plugins/telescope/telescope-config.lua
 luafile ~/.config/nvim/lua/plugins/treesitter/treesitter.lua

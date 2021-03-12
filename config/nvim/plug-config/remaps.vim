@@ -29,9 +29,9 @@ nnoremap <C-s> :w<CR> " Alternate way to save
 nnoremap <C-Q> :wq!<CR> " Alternate way to quit
 
 " TAB in general mode will move to text buffer
-nnoremap <silent> <TAB> :bnext<CR>
+nnoremap <silent> <TAB> :bprevious<CR>
 " SHIFT-TAB will go back
-nnoremap <silent> <S-TAB> :bprevious<CR>
+nnoremap <silent> <S-TAB> :bnext<CR>
 " Close buffer with ctrl+w
 nnoremap <silent> <C-w> :bd<CR>
 
@@ -58,4 +58,5 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
+
 
