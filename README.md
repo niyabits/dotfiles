@@ -1,5 +1,13 @@
 Author: [@yashguptaz](https://twitter.com/yashguptaz) 
 
+A script for setting up all the symlinks for all the config is in progress.
+If you're interested then take a look at,
+
+`configure.sh`
+
+Make sure to run `chmod +x ./configure.sh`
+and then you can run the script by simply doing `./configure.sh`
+
 # Quick Start
 
 1. Clone this repo
