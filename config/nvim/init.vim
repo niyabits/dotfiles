@@ -53,8 +53,6 @@ Plug 'jremmen/vim-ripgrep'                              " Search faster :Rg comm
 Plug 'vim-utils/vim-man'                                " View man pages in Vim :Man
 Plug 'mbbill/undotree'                                  " A log of undo changes
 Plug 'airblade/vim-rooter'                              " Opens projects in rot directory
-Plug 'vim-airline/vim-airline'                          " Beautiful bottom line
-Plug 'vim-airline/vim-airline-themes'                   " Themes for beautiful lines
 Plug 'ryanoasis/vim-devicons'                           " Beautiful icons
 Plug 'justinmk/vim-sneak'                               " Use `s` to navigate faster
 Plug 'preservim/nerdcommenter'                          " Comment Things Faster 
@@ -65,10 +63,12 @@ Plug 'mhinz/vim-startify'                               " Better Starting screen
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}         " Navigate Linux Filesystem
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
+
+"Plug 'vim-airline/vim-airline'                          " Beautiful bottom line
+"Plug 'vim-airline/vim-airline-themes'                   " Themes for beautiful lines
 "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " Fuzzy Searcher
 "Plug 'junegunn/fzf.vim'                                 " Fuzzy Searcher *
 "Plug '~/.fzf'                                           " More Fuzzzy
-" Plug 'alvan/vim-closetag'                               " Auto Close HTML and JSX Tags
 
 Plug 'haishanh/night-owl.vim'                           " NightOwl Theme
 Plug 'bluz71/vim-nightfly-guicolors' 										" Nightfly Theme
@@ -85,18 +85,22 @@ Plug 'junegunn/gv.vim'                                  " Git commit browser
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
 Plug 'nvim-treesitter/playground'   
 
-Plug 'kyazdani42/nvim-web-devicons'         " Devicons for vim
-Plug 'neovim/nvim-lspconfig'                " Native Neovim Language Server Protocol
-Plug 'hrsh7th/nvim-compe'                   " Autocompletetion Plugin For Neovim
-Plug 'anott03/nvim-lspinstall'              " Easily Install Language Server Protocols
-Plug 'kyazdani42/nvim-tree.lua'             " Explorer for Vim
-Plug 'romgrk/barbar.nvim'                   " Tabs for Vim
+Plug 'neovim/nvim-lspconfig'                        " Native Neovim Language Server Protocol
+Plug 'glepnir/lspsaga.nvim'                         " Code actions and other UI LSP features
+Plug 'kyazdani42/nvim-web-devicons'                 " Devicons for vim
+Plug 'hrsh7th/nvim-compe'                           " Autocompletetion Plugin For Neovim
+Plug 'anott03/nvim-lspinstall'                      " Easily Install Language Server Protocols
+Plug 'kyazdani42/nvim-tree.lua'                     " Explorer for Vim
+Plug 'romgrk/barbar.nvim'                           " Tabs for Vim
+Plug 'kosayoda/nvim-lightbulb'                      " VSCode like Light Bulb
+Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'} " Vim Bottom Line
+Plug 'norcalli/nvim-colorizer.lua'                  " Colorizer for Vim
 
 " Telescope
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
 call plug#end()
 
 source ~/.config/nvim/plug-config/remaps.vim          " REMAPS
@@ -104,25 +108,27 @@ source ~/.config/nvim/plug-config/appearence.vim      " APPEARENCE
 
 " -- VIM PLUGINS --
 source ~/.config/nvim/plug-config/coc/coc-config.vim
-source ~/.config/nvim/plug-config/rnvimr.vim
 source ~/.config/nvim/plug-config/startify.vim
-source ~/.config/nvim/plug-config/airline.vim
 source ~/.config/nvim/plug-config/sneak.vim
 source ~/.config/nvim/plug-config/quickscope.vim
 source ~/.config/nvim/plug-config/nerd-commentor.vim
 source ~/.config/nvim/plug-config/ripgrep.vim
 source ~/.config/nvim/plug-config/util.vim
-source ~/.config/nvim/plug-config/barbar.vim
+" source ~/.config/nvim/plug-config/airline.vim
 " source ~/.config/nvim/plug-config/fzf.vim
 " source ~/.config/nvim/plug-config/closetag.vim
-" source $HOME/.config/nvim/plug-config/signify.vim
+" source ~/.config/nvim/plug-config/signify.vim
 
 " -- LUA --
 source ~/.config/nvim/plug-config/lsp-config.vim
+source ~/.config/nvim/plug-config/barbar.vim
+source ~/.config/nvim/plug-config/rnvimr.vim
+source ~/.config/nvim/plug-config/nvim-tree.vim
+
 luafile ~/.config/nvim/lua/plugins/telescope/telescope-config.lua
 luafile ~/.config/nvim/lua/plugins/treesitter/treesitter.lua
 luafile ~/.config/nvim/lua/plugins/compe/compe-config.lua
 luafile ~/.config/nvim/lua/plugins/nvim-tree/nvim-tree-config.lua
-
-" Lua Plugins Vim Config
-source ~/.config/nvim/plug-config/nvim-tree.vim
+luafile ~/.config/nvim/lua/plugins/nvim-lightbulb/nvim-lightbulb.lua
+luafile ~/.config/nvim/lua/plugins/galaxyline/galaxy-line-config.lua
+luafile ~/.config/nvim/lua/plugins/colorizer/colorizer-config.lua
