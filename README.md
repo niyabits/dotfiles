@@ -3,8 +3,8 @@ Author: [@yashguptaz](https://twitter.com/yashguptaz)
 # Quick Start
 
 1. Clone this repo
-   `git clone https://github.com/yashguptaz/dotfiles-and-config.git ~/.dotfiles``
-2. ``cp -a ~/.dotfiles/home ~/`
+   `git clone https://github.com/yashguptaz/dotfiles-and-config.git ~/.dotfiles`
+2. `cp -a ~/.dotfiles/home ~/`
 3. `cp -a ~/.dotfiles/config/ ~/.config/`
 4. Install all the programs
 
