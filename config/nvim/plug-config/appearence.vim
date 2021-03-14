@@ -8,7 +8,7 @@ syntax enable
 colorscheme nightfly
 
 hi Normal guibg=NONE ctermbg=NONE
-hi VertSplit ctermfg=Black ctermbg=DarkGray
+hi VertSplit ctermfg=NONE ctermbg=NONE
  
 set t_Co=256
 set fillchars+=vert:\│

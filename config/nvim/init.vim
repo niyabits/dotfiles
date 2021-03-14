@@ -37,7 +37,6 @@ set shortmess+=c
 filetype plugin on      " Auto Indentation Levels
 filetype indent off     " Auto Indentation Levels
 
-
 " --- PLUGINS ---
 " Install vim plug https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
@@ -55,7 +54,6 @@ Plug 'mbbill/undotree'                                  " A log of undo changes
 Plug 'airblade/vim-rooter'                              " Opens projects in rot directory
 Plug 'ryanoasis/vim-devicons'                           " Beautiful icons
 Plug 'justinmk/vim-sneak'                               " Use `s` to navigate faster
-Plug 'preservim/nerdcommenter'                          " Comment Things Faster 
 Plug 'AndrewRadev/tagalong.vim'                         " Autoclose & autorename HTMLish Tags
 Plug 'unblevable/quick-scope'                           " Faster `f` movement
 Plug 'voldikss/vim-floaterm'
@@ -63,16 +61,9 @@ Plug 'mhinz/vim-startify'                               " Better Starting screen
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}         " Navigate Linux Filesystem
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'alvan/vim-closetag'
 
-"Plug 'vim-airline/vim-airline'                          " Beautiful bottom line
-"Plug 'vim-airline/vim-airline-themes'                   " Themes for beautiful lines
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " Fuzzy Searcher
-"Plug 'junegunn/fzf.vim'                                 " Fuzzy Searcher *
-"Plug '~/.fzf'                                           " More Fuzzzy
-
-Plug 'haishanh/night-owl.vim'                           " NightOwl Theme
-Plug 'bluz71/vim-nightfly-guicolors' 										" Nightfly Theme
-Plug 'ghifarit53/tokyonight-vim'												" TokyoNight Theme
+Plug 'bluz71/vim-nightfly-guicolors' 								    " Nightfly Theme
 
 " Git Tooling
 Plug 'tpope/vim-fugitive'                               " Run `:git` commands
@@ -95,6 +86,9 @@ Plug 'romgrk/barbar.nvim'                           " Tabs for Vim
 Plug 'kosayoda/nvim-lightbulb'                      " VSCode like Light Bulb
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'} " Vim Bottom Line
 Plug 'norcalli/nvim-colorizer.lua'                  " Colorizer for Vim
+Plug 'mhartington/formatter.nvim'                   " Prettier for Vim
+Plug 'p00f/nvim-ts-rainbow'                         " Bracket Pair Colorizer
+Plug 'b3nj5m1n/kommentary'                                " Comment Things Faster 
 
 " Telescope
 Plug 'nvim-telescope/telescope.nvim'
@@ -103,28 +97,28 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 call plug#end()
 
-source ~/.config/nvim/plug-config/remaps.vim          " REMAPS
 source ~/.config/nvim/plug-config/appearence.vim      " APPEARENCE
-
+source ~/.config/nvim/plug-config/remaps.vim          " REMAPS
+ 
 " -- VIM PLUGINS --
 source ~/.config/nvim/plug-config/coc/coc-config.vim
 source ~/.config/nvim/plug-config/startify.vim
 source ~/.config/nvim/plug-config/sneak.vim
 source ~/.config/nvim/plug-config/quickscope.vim
-source ~/.config/nvim/plug-config/nerd-commentor.vim
 source ~/.config/nvim/plug-config/ripgrep.vim
 source ~/.config/nvim/plug-config/util.vim
-" source ~/.config/nvim/plug-config/airline.vim
-" source ~/.config/nvim/plug-config/fzf.vim
-" source ~/.config/nvim/plug-config/closetag.vim
+source ~/.config/nvim/plug-config/closetag.vim
 " source ~/.config/nvim/plug-config/signify.vim
 
+
 " -- LUA --
+source ~/.config/nvim/lua/lua-remaps.vim
+
 source ~/.config/nvim/plug-config/lsp-config.vim
+source ~/.config/nvim/plug-config/nvim-tree.vim
+source ~/.config/nvim/plug-config/tagalong.vim
 source ~/.config/nvim/plug-config/barbar.vim
 source ~/.config/nvim/plug-config/rnvimr.vim
-source ~/.config/nvim/plug-config/nvim-tree.vim
-source ~/.config/nvim/lua/lua-remaps.vim
 
 luafile ~/.config/nvim/lua/plugins/telescope/telescope-config.lua
 luafile ~/.config/nvim/lua/plugins/treesitter/treesitter.lua
@@ -133,3 +127,9 @@ luafile ~/.config/nvim/lua/plugins/nvim-tree/nvim-tree-config.lua
 luafile ~/.config/nvim/lua/plugins/nvim-lightbulb/nvim-lightbulb.lua
 luafile ~/.config/nvim/lua/plugins/galaxyline/galaxy-line-config.lua
 luafile ~/.config/nvim/lua/plugins/colorizer/colorizer-config.lua
+luafile ~/.config/nvim/lua/plugins/formatter/formatter-config.lua
+luafile ~/.config/nvim/lua/plugins/kommentary/kommentary-config.lua
+
+" LSP Files
+luafile ~/.config/nvim/lua/lsp/ts.lua
+" luafile ~/.config/nvim/lua/lsp/lua-ls.lua

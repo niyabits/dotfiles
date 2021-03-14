@@ -9,8 +9,12 @@ nnoremap <M-h> :vertical resize -2<CR>
 nnoremap <M-l> :vertical resize +2<CR>
 
 " nnoremap <C-p> :Files<Cr>
-nnoremap <C-p> :lua require('telescope.builtin').find_files()<Cr>
 nnoremap <C-c> <Esc>
+
+" Telescope Remaps
+nnoremap <C-p> :lua require('telescope.builtin').git_files()<Cr>
+nnoremap <leader>tg :lua require('telescope.builtin').live_grep()<Cr>
+
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
@@ -29,9 +33,9 @@ nnoremap <C-s> :w<CR> " Alternate way to save
 nnoremap <C-Q> :wq!<CR> " Alternate way to quit
 
 " TAB in general mode will move to text buffer
-nnoremap <silent> <TAB> :bprevious<CR>
+nnoremap <silent> <TAB> :bnext<CR>
 " SHIFT-TAB will go back
-nnoremap <silent> <S-TAB> :bnext<CR>
+nnoremap <silent> <S-TAB> :bprevious<CR>
 " Close buffer with ctrl+w
 nnoremap <silent> <C-w> :bd<CR>
 
