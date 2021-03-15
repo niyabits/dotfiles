@@ -89,6 +89,7 @@ Plug 'norcalli/nvim-colorizer.lua'                  " Colorizer for Vim
 Plug 'p00f/nvim-ts-rainbow'                         " Bracket Pair Colorizer
 Plug 'b3nj5m1n/kommentary'                          " Comment Things Faster 
 Plug 'windwp/nvim-autopairs'                        " Auto close parenthesis, brackets etc
+Plug 'TimUntersberger/neogit'                       " Git Integration for Neovim
 
 " Telescope
 Plug 'nvim-telescope/telescope.nvim'
@@ -128,8 +129,10 @@ luafile ~/.config/nvim/lua/plugins/galaxyline/galaxy-line-config.lua
 luafile ~/.config/nvim/lua/plugins/colorizer/colorizer-config.lua
 luafile ~/.config/nvim/lua/plugins/kommentary/kommentary-config.lua
 luafile ~/.config/nvim/lua/plugins/nvim-autopairs/nvim-autopairs-config.lua
+luafile ~/.config/nvim/lua/plugins/lspsaga/lspsaga-config.lua
 
 " LSP Files
 luafile ~/.config/nvim/lua/lsp/general-ls.lua
 luafile ~/.config/nvim/lua/lsp/ts.lua
+luafile ~/.config/nvim/lua/lsp/eslint.lua
 " luafile ~/.config/nvim/lua/lsp/lua-ls.lua
