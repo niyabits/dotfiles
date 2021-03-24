@@ -130,9 +130,9 @@ luafile ~/.config/nvim/lua/plugins/colorizer/colorizer-config.lua
 luafile ~/.config/nvim/lua/plugins/kommentary/kommentary-config.lua
 luafile ~/.config/nvim/lua/plugins/nvim-autopairs/nvim-autopairs-config.lua
 luafile ~/.config/nvim/lua/plugins/lspsaga/lspsaga-config.lua
+luafile ~/.config/nvim/lua/lsp/efm-general-ls.lua
 
 " LSP Files
 luafile ~/.config/nvim/lua/lsp/general-ls.lua
 luafile ~/.config/nvim/lua/lsp/ts.lua
-luafile ~/.config/nvim/lua/lsp/eslint.lua
 " luafile ~/.config/nvim/lua/lsp/lua-ls.lua

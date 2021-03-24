@@ -11,9 +11,9 @@ require"lspconfig".efm.setup {
                 }
             },
             javascript = {{formatCommand = "prettier --write && eslint .", formatStdin = true}},
-            typescript = {{formatCommand = "prettier --write", formatStdin = true}},
-            javascriptreact = {{formatCommand = "prettier --write", formatStdin = true}},
-            typescriptreact = {{formatCommand = "prettier --write", formatStdin = true}}
+            typescript = {{formatCommand = "prettier --write && eslint .", formatStdin = true}},
+            javascriptreact = {{formatCommand = "prettier --write && eslint .", formatStdin = true}},
+            typescriptreact = {{formatCommand = "prettier --write && eslint .", formatStdin = true}}
         }
     }
 }

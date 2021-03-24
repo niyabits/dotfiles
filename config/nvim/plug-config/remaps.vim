@@ -13,7 +13,7 @@ nnoremap <C-c> <Esc>
 
 " Telescope Remaps
 nnoremap <C-p> :lua require('telescope.builtin').git_files()<Cr>
-nnoremap <leader>tg :lua require('telescope.builtin').live_grep()<Cr>
+nnoremap <leader>lg :lua require('telescope.builtin').live_grep()<Cr>
 
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
