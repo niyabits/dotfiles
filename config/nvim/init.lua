@@ -7,6 +7,8 @@ require('plugins')
 require('plugins/nvim-compe')
 require('plugins/telescope')
 require('plugins/nvim-tree')
+require('plugins/kommentary')
+require('plugins/dashboard')
 
 -- Language Servers
 require('lsp/init')

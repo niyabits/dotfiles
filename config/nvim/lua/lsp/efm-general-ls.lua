@@ -50,7 +50,7 @@ require"lspconfig".efm.setup {
     settings = {
         rootMarkers = {".git/"},
         languages = {
-            lua = {luaFormat},
+            -- lua = {luaFormat},
             python = {isort, yapf},
             javascript = {prettier, eslint},
             typescript = {prettier, eslint},
@@ -68,4 +68,4 @@ require"lspconfig".efm.setup {
 }
 
 -- Automatically Run Prettier on Save
-vim.cmd("autocmd BufWritePre * lua vim.lsp.buf.formatting()")
+vim.cmd("autocmd BufWritePost * lua vim.lsp.buf.formatting()")
