@@ -7,6 +7,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
   execute 'packadd packer.nvim'
 end
+-- This file can be loaded by calling `lua require('plugins')` from your init.vim
+
 
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'		 		-- Packer can manage itself

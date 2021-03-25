@@ -1,9 +1,9 @@
 require('keymaps')
 require('options')
 require('theming')
+require('plugins')
 
 -- Plugins
-require('plugins')
 require('plugins/nvim-compe')
 require('plugins/telescope')
 require('plugins/nvim-tree')
@@ -20,3 +20,4 @@ require('lsp/css')
 require('lsp/html')
 require('lsp/json')
 require('lsp/efm-general-ls')
+
