@@ -37,7 +37,7 @@ vim.wo.signcolumn = "yes" 					-- Always show the signcolumn, otherwise it would
 vim.o.updatetime = 300 							-- Faster completion
 vim.o.timeoutlen = 100 							-- By default timeoutlen is 1000 ms
 vim.o.clipboard = "unnamedplus" 		-- Copy paste between vim and everything else
+vim.o.undodir = "~/.vim/undodir" 		-- Undo Directory
 
 vim.cmd("filetype plugin on")				-- Auto Indentation Levels 
 vim.cmd("filetype indent off") 			-- Auto Indentation Levels
-

@@ -9,6 +9,9 @@ require('plugins/telescope')
 require('plugins/nvim-tree')
 require('plugins/kommentary')
 require('plugins/dashboard')
+require('plugins/galaxyline')
+require('plugins/autopairs')
+require('plugins/closetag')
 
 -- Language Servers
 require('lsp/init')

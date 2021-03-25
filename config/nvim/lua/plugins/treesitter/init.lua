@@ -15,11 +15,7 @@ require'nvim-treesitter.configs'.setup {
         keymaps = {init_selection = "vi", node_incremental = "n", scope_incremental = "s", node_decremental = "nd"}
     },
 
-    autotag = {
-			enable = true, 
-			filetypes = { 'html', 'javascript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'typescript' }
-		},
-
     rainbow = {enable = true}
 }
 
+require('nvim-ts-autotag').setup()

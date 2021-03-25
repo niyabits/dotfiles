@@ -16,14 +16,17 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-tree.lua' 			-- Explorer
 	use 'kyazdani42/nvim-web-devicons'  -- Devicons for Plugins
 	use 'romgrk/barbar.nvim' 						-- VSCode like Tab Bar 
+	use {'glepnir/galaxyline.nvim' , branch = 'main'}	
 
 	-- Treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 	use 'nvim-treesitter/playground'
   use 'nvim-treesitter/nvim-treesitter-refactor'
 	use 'p00f/nvim-ts-rainbow'
-	use 'windwp/nvim-ts-autotag'
 	
+	use 'windwp/nvim-ts-autotag'
+  use 'alvan/vim-closetag'
+
 	-- LSP
   use 'neovim/nvim-lspconfig'					-- Language Server Protocol Config
   use 'hrsh7th/nvim-compe' 						-- Autocompletion
@@ -45,4 +48,5 @@ return require('packer').startup(function()
 	use 'liuchengxu/vim-which-key'  		-- Which Key
 
 	use 'glepnir/dashboard-nvim' 				-- Dashboard for Neovim
+	use 'mbbill/undotree' 							-- Undotree to undo stuff well
 end)
