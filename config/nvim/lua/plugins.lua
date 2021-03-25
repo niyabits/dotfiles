@@ -51,4 +51,6 @@ return require('packer').startup(function()
 
 	use 'glepnir/dashboard-nvim' 				-- Dashboard for Neovim
 	use 'mbbill/undotree' 							-- Undotree to undo stuff well
+
+	use 'pantharshit00/vim-prisma'
 end)

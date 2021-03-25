@@ -1,6 +1,7 @@
 -- Reference from:
 -- https://github.com/rainbowhxch/nvim/blob/f59569e874a8975a6c321b00c74e3554ff904e63/lua/mapping.lua
 -- Helper Functions for remapping easily
+require("plugins/telescope")
 local function map(mode, lhs, rhs)
     vim.api.nvim_set_keymap(mode, lhs, rhs, {silent = true})
 end
@@ -40,11 +41,14 @@ nnoremap('<C-e>', ':NvimTreeToggle<CR>')
 -- Command Line Mapping
 vim.cmd(':command SearchFiles lua require(\'telescope.builtin\').git_files()')
 vim.cmd(':command Find lua require(\'telescope.builtin\').live_grep()')
+vim.cmd(':command SearchVimConfig lua require(\'plugins/telescope\').search_dotfiles()')
+
+-- Search Dot files with Telescope
+nnoremap('<leader>nvc', ':SearchVimConfig<CR>')
 
 -- ctrl+p to search files
 nnoremap('<C-p>', ':SearchFiles<CR>')
 nnoremap('<leader>lg', ':Find<CR>')
-
 -- Neogit
 nnoremap('<leader>g', ':Neogit<CR>')
 
@@ -69,19 +73,20 @@ nnoremap('<C-w>', ':bd<CR>')
 nmap('<C-l>', ':nohl<CR>')
 
 -- Better Window Movement
-nmap('<C-h>', '<C-w>h')
-nmap('<C-j>', '<C-w>j')
-nmap('<C-k>', '<C-w>k')
+nmap('<C-h>', ':wincmd h<CR>')
+nmap('<C-j>', ':wincmd j<CR>')
+nmap('<C-k>', ':wincmd k<CR>')
+nmap('<C-l>', ':wincmd l<CR>')
 
-vim.cmd(':command LeftWindow :wincmd h<CR>')
-vim.cmd(':command DownWindow :wincmd j<CR>')
-vim.cmd(':command UpWindow :wincmd k<CR>')
-vim.cmd(':command RightWindow :wincmd l<CR>')
+--[[ vim.cmd(':command LeftWindow :wincmd h')
+vim.cmd(':command DownWindow :wincmd j')
+vim.cmd(':command UpWindow :wincmd k')
+vim.cmd(':command RightWindow :wincmd l')
 
 nnoremap('<leader>h', ':LeftWindow<CR>')
 nnoremap('<leader>j', ':UpWindow<CR>')
 nnoremap('<leader>k', ':DownWindow<CR>')
-nnoremap('<leader>l', ':RightWindow<CR>')
+nnoremap('<leader>l', ':RightWindow<CR>') ]]
 
 -- Alternate way to Save 
 nnoremap('<C-s>', ':w<CR>')
@@ -103,4 +108,6 @@ nnoremap('<A-k>', ':m .-2<CR>==')
 inoremap('<A-j>', '<Esc>:m .+1<CR>==gi')
 inoremap('<A-k>', '<Esc>:m .-2<CR>==gi')
 
+-- Split Window Vertically
+nnoremap('<leader>v', ':vsplit<CR>')                        
 
