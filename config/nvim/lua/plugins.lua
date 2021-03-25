@@ -48,6 +48,7 @@ return require('packer').startup(function()
 	use 'TimUntersberger/neogit' 				-- Git integration for Neovim
 	use 'andymass/vim-matchup' 					-- Better %
 	use 'liuchengxu/vim-which-key'  		-- Which Key
+  use 'moll/vim-bbye' 								-- Better Tab Closing
 
 	use 'glepnir/dashboard-nvim' 				-- Dashboard for Neovim
 	use 'mbbill/undotree' 							-- Undotree to undo stuff well

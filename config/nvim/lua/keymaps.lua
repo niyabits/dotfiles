@@ -67,7 +67,7 @@ vim.cmd(':command Undotree :UndotreeShowh<CR>')
 nnoremap('<leader>u', ':Undotree<CR>')
 
 -- CTRL+W to close buffer
-nnoremap('<C-w>', ':bd<CR>')
+nnoremap('<C-w>', ':Bdelete<CR>')
 
 -- Remove Highlights 
 nmap('<C-l>', ':nohl<CR>')
@@ -77,6 +77,10 @@ nmap('<C-h>', ':wincmd h<CR>')
 nmap('<C-j>', ':wincmd j<CR>')
 nmap('<C-k>', ':wincmd k<CR>')
 nmap('<C-l>', ':wincmd l<CR>')
+
+-- alt + hjkl to resize
+nnoremap('<M-h>', ':vertical resize -2<CR>')
+nnoremap('<M-l>', ':vertical resize +2<CR>')
 
 --[[ vim.cmd(':command LeftWindow :wincmd h')
 vim.cmd(':command DownWindow :wincmd j')
