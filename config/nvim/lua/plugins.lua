@@ -37,9 +37,9 @@ return require('packer').startup(function()
 
 	-- Telescope
 	use 'nvim-telescope/telescope.nvim' -- Telescope: Searching  
+	use 'akinsho/nvim-toggleterm.lua'   -- Terminal for Neovim
 	use 'nvim-lua/popup.nvim' 					-- Neovim Popup API
 	use 'nvim-lua/plenary.nvim' 				-- Functions you don't wanna write again
-
 	use 'hrsh7th/vim-vsnip' 						-- Snipper Integration for Neovim
   use 'hrsh7th/vim-vsnip-integ'
 

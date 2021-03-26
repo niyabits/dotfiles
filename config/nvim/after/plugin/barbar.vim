@@ -4,4 +4,4 @@ let s:none       = 'NONE'
 
 exe 'hi BufferInactive     guibg=' . s:none . ' guifg=' . s:grey_blue
 exe 'hi BufferInactiveSign guibg=' . s:none . ' guifg=' . s:cadet_blue
-exe 'hi BufferTabpageFill guibg=' . s:none . ' guifg=' . s:none
+exe 'hi BufferTabpageFill  guibg=' . s:none . ' guifg=' . s:none

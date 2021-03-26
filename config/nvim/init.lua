@@ -20,4 +20,6 @@ require('lsp/css')
 require('lsp/html')
 require('lsp/json')
 require('lsp/efm-general-ls')
+-- Add Emmet LSP - https://github.com/aca/emmet-ls
+
 

@@ -30,18 +30,52 @@ local function inoremap(lhs, rhs)
     noremap('i', lhs, rhs)
 end
 
+local function tnoremap(lhs, rhs)
+    noremap('t', lhs, rhs)
+end
+
 -- Map Leader Key to <Space>
 nnoremap('<Space>', '<NOP>')
 vim.g.mapleader = ' '
 nnoremap('<leader>', ':WhichKey \'<Space>\'<CR>')
 
--- Toggle explorer
-nnoremap('<C-e>', ':NvimTreeToggle<CR>')
+---== LSP Saga ==---
+nnoremap('gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+nnoremap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+nnoremap('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+nnoremap('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+
+nnoremap('ca', ':Lspsaga code_action<CR>')
+nnoremap('K', ':Lspsaga hover_doc<CR>')
+
+-- vim.cmd('nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>')
+nnoremap("<C-N>", ":Lspsaga diagnostic_jump_prev<CR>")
+nnoremap("<C-n>", ":Lspsaga diagnostic_jump_next<CR>")
+-- scroll down hover doc or scroll in definition preview
+nnoremap("<C-f>", "<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>")
+-- scroll up hover doc
+nnoremap("<C-b>", "<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(-1)<CR>")
+vim.cmd('command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle()')
+
+nnoremap('<leader>gr', ':Lspsaga rename<CR>')
+--=======--
 
 -- Command Line Mapping
 vim.cmd(':command SearchFiles lua require(\'telescope.builtin\').git_files()')
 vim.cmd(':command Find lua require(\'telescope.builtin\').live_grep()')
 vim.cmd(':command SearchVimConfig lua require(\'plugins/telescope\').search_dotfiles()')
+
+-- Toggle explorer
+nnoremap('<C-e>', ':NvimTreeToggle<CR>')
+
+-- Toggle Integrated Terminal
+-- TODO: Remap to CTRL+` for more VSCode like experience
+nnoremap('<leader>t', ':ToggleTerm<Enter>')
+tnoremap('<leader>t', '<C-\\><C-n>:ToggleTerm<Enter>')
+
+-- Esc to get out of terminal
+tnoremap('<Esc>', '<C-\\><C-n>')
+
 
 -- Search Dot files with Telescope
 nnoremap('<leader>nvc', ':SearchVimConfig<CR>')
@@ -49,6 +83,7 @@ nnoremap('<leader>nvc', ':SearchVimConfig<CR>')
 -- ctrl+p to search files
 nnoremap('<C-p>', ':SearchFiles<CR>')
 nnoremap('<leader>lg', ':Find<CR>')
+
 -- Neogit
 nnoremap('<leader>g', ':Neogit<CR>')
 
@@ -67,7 +102,7 @@ vim.cmd(':command Undotree :UndotreeShowh<CR>')
 nnoremap('<leader>u', ':Undotree<CR>')
 
 -- CTRL+W to close buffer
-nnoremap('<C-w>', ':Bdelete<CR>')
+nnoremap('<C-w>', ':bd<CR>')
 
 -- Remove Highlights 
 nmap('<C-l>', ':nohl<CR>')
@@ -82,7 +117,7 @@ nmap('<C-l>', ':wincmd l<CR>')
 nnoremap('<M-h>', ':vertical resize -2<CR>')
 nnoremap('<M-l>', ':vertical resize +2<CR>')
 
---[[ vim.cmd(':command LeftWindow :wincmd h')
+vim.cmd(':command LeftWindow :wincmd h')
 vim.cmd(':command DownWindow :wincmd j')
 vim.cmd(':command UpWindow :wincmd k')
 vim.cmd(':command RightWindow :wincmd l')
@@ -90,7 +125,7 @@ vim.cmd(':command RightWindow :wincmd l')
 nnoremap('<leader>h', ':LeftWindow<CR>')
 nnoremap('<leader>j', ':UpWindow<CR>')
 nnoremap('<leader>k', ':DownWindow<CR>')
-nnoremap('<leader>l', ':RightWindow<CR>') ]]
+nnoremap('<leader>l', ':RightWindow<CR>')
 
 -- Alternate way to Save 
 nnoremap('<C-s>', ':w<CR>')
