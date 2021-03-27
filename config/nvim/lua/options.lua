@@ -9,10 +9,10 @@ vim.cmd('set undofile') 			 			-- Persistent Undo
 vim.cmd('set incsearch') 			 			-- Incremental Search: Search as you type
 vim.cmd('set autoindent') 				 	-- Auto Indent
 vim.cmd('set nohlsearch') 				 	-- No Highlight Search 
-vim.cmd('set nobackup') 				 		-- No Highlight Search 
-vim.cmd('set nowritebackup') 				-- No Highlight Search 
-vim.o.hidden = true 								-- Required to keep multiple buffers open multiple buffers
-vim.wo.wrap = false 								-- Display long lines as just one line
+vim.cmd('set nobackup') 				 		-- No no backup 
+vim.cmd('set nowritebackup') 				-- No Write Backup 
+vim.o.hidden = true 								-- Required to keep multiple buffers open 
+vim.wo.wrap = true 	 								-- Display long lines as multiple 
 vim.o.pumheight = 10 								-- Makes popup menu smaller
 vim.o.scrolloff = 8 								-- Scroll Offset of 8 lines
 vim.o.fileencoding = "utf-8" 				-- The encoding written to file
@@ -37,6 +37,7 @@ vim.wo.signcolumn = "yes" 					-- Always show the signcolumn, otherwise it would
 vim.o.updatetime = 300 							-- Faster completion
 vim.o.timeoutlen = 100 							-- By default timeoutlen is 1000 ms
 vim.o.clipboard = "unnamedplus" 		-- Copy paste between vim and everything else
+vim.cmd('set colorcolumn=99999') 		-- Fix Vim Indentline 
 
 vim.cmd("filetype plugin on")				-- Auto Indentation Levels 
 vim.cmd("filetype indent off") 			-- Auto Indentation Levels

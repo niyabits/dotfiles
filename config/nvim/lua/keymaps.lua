@@ -74,7 +74,7 @@ nnoremap('<leader>t', ':ToggleTerm<Enter>')
 tnoremap('<leader>t', '<C-\\><C-n>:ToggleTerm<Enter>')
 
 -- Esc to get out of terminal
-tnoremap('<Esc>', '<C-\\><C-n>')
+tnoremap('<C-\\>', '<C-\\><C-n>')
 
 
 -- Search Dot files with Telescope

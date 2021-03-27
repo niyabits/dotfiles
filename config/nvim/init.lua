@@ -1,7 +1,7 @@
-require('keymaps')
 require('options')
-require('theming')
 require('plugins')
+require('keymaps')
+require('theming')
 
 -- Plugins
 require('plugins/nvim-compe')
@@ -10,8 +10,15 @@ require('plugins/nvim-tree')
 require('plugins/kommentary')
 require('plugins/dashboard')
 require('plugins/galaxyline')
-require('plugins/autopairs')
+require('plugins/lspkind')
+require('plugins/lightbulb')
+require('plugins/emmet')
+require('plugins/vim-rooter')
+require('plugins/floaterm')
+require('plugins/bookmarks')
+require('plugins/indentline')
 require('plugins/closetag')
+-- require('plugins/autopairs')
 
 -- Language Servers
 require('lsp/init')
@@ -20,6 +27,5 @@ require('lsp/css')
 require('lsp/html')
 require('lsp/json')
 require('lsp/efm-general-ls')
--- Add Emmet LSP - https://github.com/aca/emmet-ls
-
-
+require('lsp/prisma')
+-- Get Prisma LSP Working

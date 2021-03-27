@@ -2,6 +2,8 @@ local actions = require('telescope.actions')
 -- Global remapping
 ------------------------------
 -- '--color=never',
+
+require('telescope').load_extension('media_files')
 require('telescope').setup {
     defaults = {
         vimgrep_arguments = {'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'},
