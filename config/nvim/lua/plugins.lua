@@ -24,8 +24,8 @@ return require('packer').startup(function()
 
 	-- Web Dev
 	use 'gennaro-tedesco/nvim-jqx'
-	use 'windwp/nvim-ts-autotag'
   use 'alvan/vim-closetag'
+	use 'styled-components/vim-styled-components'
 
 	-- LSP
   use 'neovim/nvim-lspconfig'					-- Language Server Protocol Config
@@ -41,6 +41,7 @@ return require('packer').startup(function()
 	use 'dsznajder/vscode-es7-javascript-react-snippets'
 	use 'golang/vscode-go'
 	use 'rust-lang/vscode-rust'
+	-- use 'cohama/lexima.vim'
 
 	-- Telescope
 	use 'nvim-telescope/telescope.nvim' -- Telescope: Searching  
@@ -69,13 +70,12 @@ return require('packer').startup(function()
 	use 'b3nj5m1n/kommentary'
 	use 'bfredl/nvim-miniyank'
 	use 'andymass/vim-matchup' 					-- Better %
-	use 'cohama/lexima.vim'
 	use 'MattesGroeger/vim-bookmarks'
 
 	use 'TimUntersberger/neogit' 				-- Git integration for Neovim
 	use 'mbbill/undotree' 							-- Undotree to undo stuff well
 	use 'moll/vim-bbye' 								-- Better Tab Closing; Incompat. with Barbar
-	-- use 'windwp/nvim-autopairs'
+	use 'windwp/nvim-autopairs'
 
 	-- Tool Specific
 	use 'pantharshit00/vim-prisma'

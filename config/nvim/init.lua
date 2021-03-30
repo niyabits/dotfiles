@@ -18,7 +18,7 @@ require('plugins/floaterm')
 require('plugins/bookmarks')
 require('plugins/indentline')
 require('plugins/closetag')
--- require('plugins/autopairs')
+require('plugins/autopairs')
 
 -- Language Servers
 require('lsp/init')

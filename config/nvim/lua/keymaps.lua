@@ -34,6 +34,21 @@ local function tnoremap(lhs, rhs)
     noremap('t', lhs, rhs)
 end
 
+-- NVIM Compe Remaps
+local function exprnoremap(mode, lhs, rhs)
+    vim.api.nvim_set_keymap(mode, lhs, rhs, {noremap = true, silent = true, expr = true})
+end
+
+local function exprinoremap(lhs, rhs)
+    exprnoremap('i', lhs, rhs)
+end
+
+exprinoremap('<C-Space>', 'compe#complete()')
+exprinoremap('<CR>', 'compe#confirm(\'<CR>\')')
+exprinoremap('<C-e>', 'compe#close(\'<C-e>\')')
+exprinoremap('<C-f>', 'compe#scroll({ \'delta\': +4 })')
+exprinoremap('<C-d>', 'compe#scroll({ \'delta\': -4 })')
+
 -- Map Leader Key to <Space>
 nnoremap('<Space>', '<NOP>')
 vim.g.mapleader = ' '
