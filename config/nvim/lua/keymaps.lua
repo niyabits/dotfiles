@@ -60,19 +60,22 @@ nnoremap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 nnoremap('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 nnoremap('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 
-nnoremap('ca', ':Lspsaga code_action<CR>')
+nnoremap('<leader>ca', ':Lspsaga code_action<CR>')
 nnoremap('K', ':Lspsaga hover_doc<CR>')
 
 -- vim.cmd('nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>')
 nnoremap("<C-N>", ":Lspsaga diagnostic_jump_prev<CR>")
 nnoremap("<C-n>", ":Lspsaga diagnostic_jump_next<CR>")
 -- scroll down hover doc or scroll in definition preview
-nnoremap("<C-f>", "<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>")
+nnoremap("<C-k>", "<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>")
 -- scroll up hover doc
-nnoremap("<C-b>", "<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(-1)<CR>")
+nnoremap("<C-j>", "<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(-1)<CR>")
 vim.cmd('command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle()')
 
-nnoremap('<leader>gr', ':Lspsaga rename<CR>')
+vim.cmd(':command ShowCursorError lua require\'lspsaga.diagnostic\'.show_cursor_diagnostics()')
+nnoremap("<leader>e", "<cmd>ShowCursorError<CR>")
+
+nnoremap('<leader>cr', ':Lspsaga rename<CR>')
 --=======--
 
 -- Command Line Mapping
@@ -99,8 +102,16 @@ nnoremap('<leader>nvc', ':SearchVimConfig<CR>')
 nnoremap('<C-p>', ':SearchFiles<CR>')
 nnoremap('<leader>lg', ':Find<CR>')
 
+-- quick fix lists
+nnoremap('<leader>qf', ':copen<CR>')
+nnoremap('<leader>qj', ':cnext<CR>')
+nnoremap('<leader>qk', ':cprevious<CR>')
+
 -- Neogit
 nnoremap('<leader>g', ':Neogit<CR>')
+
+-- Prettier
+nnoremap("<leader>p", ":lua vim.lsp.buf.formatting()<CR>")
 
 -- Tab switch buffer
 nnoremap('<TAB>', ':bnext<CR>')
@@ -123,10 +134,10 @@ nnoremap('<C-w>', ':bd<CR>')
 nmap('<C-l>', ':nohl<CR>')
 
 -- Better Window Movement
-nmap('<C-h>', ':wincmd h<CR>')
-nmap('<C-j>', ':wincmd j<CR>')
-nmap('<C-k>', ':wincmd k<CR>')
-nmap('<C-l>', ':wincmd l<CR>')
+nnoremap('<C-h>', ':wincmd h<CR>')
+nnoremap('<C-j>', ':wincmd j<CR>')
+nnoremap('<C-k>', ':wincmd k<CR>')
+nnoremap('<C-l>', ':wincmd l<CR>')
 
 -- alt + hjkl to resize
 nnoremap('<M-h>', ':vertical resize -2<CR>')

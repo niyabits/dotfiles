@@ -14,6 +14,7 @@ return require('packer').startup(function()
  
 	-- Appearence
   use 'bluz71/vim-nightfly-guicolors' -- Nightfly Color Theme
+	use 'haishanh/night-owl.vim' 				-- night-owl Theme
   use 'kyazdani42/nvim-tree.lua' 			-- Explorer
 	use 'romgrk/barbar.nvim' 						-- VSCode like Tab Bar 
 	use {'glepnir/galaxyline.nvim' , branch = 'main'}	
@@ -26,6 +27,7 @@ return require('packer').startup(function()
 	use 'gennaro-tedesco/nvim-jqx'
   use 'alvan/vim-closetag'
 	use 'styled-components/vim-styled-components'
+	use 'jparise/vim-graphql'
 
 	-- LSP
   use 'neovim/nvim-lspconfig'					-- Language Server Protocol Config

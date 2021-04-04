@@ -68,4 +68,4 @@ require"lspconfig".efm.setup {
 }
 
 -- Automatically Run Prettier on Save
-vim.cmd("autocmd BufWritePost * lua vim.lsp.buf.formatting()")
+-- vim.cmd("autocmd BufWritePre * lua vim.lsp.buf.formatting()")

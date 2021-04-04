@@ -23,9 +23,10 @@ require('plugins/autopairs')
 -- Language Servers
 require('lsp/init')
 require('lsp/ts')
+require('lsp/json')
+require('lsp/graphql')
+require('lsp/efm-general-ls')
 require('lsp/css')
 require('lsp/html')
-require('lsp/json')
-require('lsp/efm-general-ls')
 require('lsp/prisma')
 -- Get Prisma LSP Working
