@@ -40,13 +40,29 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yash/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
   },
+  ["emmet-vim"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/emmet-vim"
+  },
   ["galaxyline.nvim"] = {
     loaded = true,
     path = "/home/yash/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
   },
+  hop = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/hop"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
+  },
   kommentary = {
     loaded = true,
     path = "/home/yash/.local/share/nvim/site/pack/packer/start/kommentary"
+  },
+  ["lspkind-nvim"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
   },
   ["lspsaga.nvim"] = {
     loaded = true,
@@ -60,9 +76,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yash/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
   },
+  ["nvim-bqf"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/nvim-bqf"
+  },
   ["nvim-compe"] = {
     loaded = true,
     path = "/home/yash/.local/share/nvim/site/pack/packer/start/nvim-compe"
+  },
+  ["nvim-jqx"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/nvim-jqx"
+  },
+  ["nvim-lightbulb"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/nvim-lightbulb"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -71,6 +99,10 @@ _G.packer_plugins = {
   ["nvim-lspinstall"] = {
     loaded = true,
     path = "/home/yash/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
+  },
+  ["nvim-miniyank"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/nvim-miniyank"
   },
   ["nvim-toggleterm.lua"] = {
     loaded = true,
@@ -84,13 +116,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yash/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
+  ["nvim-treesitter-context"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context"
+  },
   ["nvim-treesitter-refactor"] = {
     loaded = true,
     path = "/home/yash/.local/share/nvim/site/pack/packer/start/nvim-treesitter-refactor"
-  },
-  ["nvim-ts-autotag"] = {
-    loaded = true,
-    path = "/home/yash/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag"
   },
   ["nvim-ts-rainbow"] = {
     loaded = true,
@@ -116,6 +148,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yash/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
+  ["telescope-media-files.nvim"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/yash/.local/share/nvim/site/pack/packer/start/telescope.nvim"
@@ -128,9 +164,25 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yash/.local/share/nvim/site/pack/packer/start/vim-bbye"
   },
+  ["vim-bookmarks"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/vim-bookmarks"
+  },
   ["vim-closetag"] = {
     loaded = true,
     path = "/home/yash/.local/share/nvim/site/pack/packer/start/vim-closetag"
+  },
+  ["vim-devicons"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/vim-devicons"
+  },
+  ["vim-floaterm"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/vim-floaterm"
+  },
+  ["vim-graphql"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/vim-graphql"
   },
   ["vim-matchup"] = {
     loaded = true,
@@ -144,6 +196,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yash/.local/share/nvim/site/pack/packer/start/vim-prisma"
   },
+  ["vim-rooter"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/vim-rooter"
+  },
+  ["vim-styled-components"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/vim-styled-components"
+  },
   ["vim-vsnip"] = {
     loaded = true,
     path = "/home/yash/.local/share/nvim/site/pack/packer/start/vim-vsnip"
@@ -155,6 +215,26 @@ _G.packer_plugins = {
   ["vim-which-key"] = {
     loaded = true,
     path = "/home/yash/.local/share/nvim/site/pack/packer/start/vim-which-key"
+  },
+  ["vista.vim"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/vista.vim"
+  },
+  ["vscode-es7-javascript-react-snippets"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/vscode-es7-javascript-react-snippets"
+  },
+  ["vscode-go"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/vscode-go"
+  },
+  ["vscode-javascript"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/vscode-javascript"
+  },
+  ["vscode-rust"] = {
+    loaded = true,
+    path = "/home/yash/.local/share/nvim/site/pack/packer/start/vscode-rust"
   }
 }
 

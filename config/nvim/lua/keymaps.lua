@@ -55,27 +55,50 @@ vim.g.mapleader = ' '
 nnoremap('<leader>', ':WhichKey \'<Space>\'<CR>')
 
 ---== LSP Saga ==---
+
+-- Async Lsp Finder
+-- -----------------
+-- lsp provider to find the cursor word definition and reference
+nnoremap('gh', ':Lspsaga lsp_finder<CR>')
+
+-- Code Action 
+-- -----------
+nnoremap('<leader>ca', ':Lspsaga code_action<CR>')
+vnoremap('<leader>ca', ':<C-U>Lspsaga range_code_action<CR>')
+
+-- Hover Doc
+-- ---------
+nnoremap('K', ':Lspsaga hover_doc<CR>')
+-- scroll down hover doc or scroll in definition preview
+nnoremap("<C-k>", "<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>")
+-- scroll up hover doc
+nnoremap("<C-j>", "<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(-1)<CR>")
+
+-- Preview Definitions
+-- -------------------
+nnoremap('<leader>cd', ':Lspsaga preview_definition<CR>')
+
+-- Goto Definition , Declatration, References, Implementations
+-- ------------------------------------------------------------
 nnoremap('gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
 nnoremap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 nnoremap('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 nnoremap('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 
-nnoremap('<leader>ca', ':Lspsaga code_action<CR>')
-nnoremap('K', ':Lspsaga hover_doc<CR>')
-
--- vim.cmd('nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>')
+-- Diagnostics
+-- -----------
 nnoremap("<C-N>", ":Lspsaga diagnostic_jump_prev<CR>")
 nnoremap("<C-n>", ":Lspsaga diagnostic_jump_next<CR>")
--- scroll down hover doc or scroll in definition preview
-nnoremap("<C-k>", "<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>")
--- scroll up hover doc
-nnoremap("<C-j>", "<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(-1)<CR>")
 vim.cmd('command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle()')
 
+-- Show Errors under Cursor
 vim.cmd(':command ShowCursorError lua require\'lspsaga.diagnostic\'.show_cursor_diagnostics()')
 nnoremap("<leader>e", "<cmd>ShowCursorError<CR>")
 
+-- Rename
+-- ------
 nnoremap('<leader>cr', ':Lspsaga rename<CR>')
+
 --=======--
 
 -- Command Line Mapping
@@ -111,7 +134,8 @@ nnoremap('<leader>qk', ':cprevious<CR>')
 nnoremap('<leader>g', ':Neogit<CR>')
 
 -- Prettier
-nnoremap("<leader>p", ":lua vim.lsp.buf.formatting()<CR>")
+vim.cmd(':command Prettify :lua vim.lsp.buf.formatting()')
+nnoremap("<leader>p", ":Prettify<CR>")
 
 -- Tab switch buffer
 nnoremap('<TAB>', ':bnext<CR>')

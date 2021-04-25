@@ -14,7 +14,6 @@ return require('packer').startup(function()
  
 	-- Appearence
   use 'bluz71/vim-nightfly-guicolors' -- Nightfly Color Theme
-	use 'haishanh/night-owl.vim' 				-- night-owl Theme
   use 'kyazdani42/nvim-tree.lua' 			-- Explorer
 	use 'romgrk/barbar.nvim' 						-- VSCode like Tab Bar 
 	use {'glepnir/galaxyline.nvim' , branch = 'main'}	
@@ -58,6 +57,8 @@ return require('packer').startup(function()
 	use 'nvim-treesitter/playground'
 	use 'p00f/nvim-ts-rainbow'
 	use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
+	use 'romgrk/nvim-treesitter-context'
+
 
 	-- Snippets
 	use 'hrsh7th/vim-vsnip' 						-- Snipper Integration for Neovim
@@ -73,6 +74,7 @@ return require('packer').startup(function()
 	use 'bfredl/nvim-miniyank'
 	use 'andymass/vim-matchup' 					-- Better %
 	use 'MattesGroeger/vim-bookmarks'
+	use { 'phaazon/hop.nvim', as = 'hop', }
 
 	use 'TimUntersberger/neogit' 				-- Git integration for Neovim
 	use 'mbbill/undotree' 							-- Undotree to undo stuff well

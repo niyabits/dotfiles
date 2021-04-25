@@ -1,13 +1,10 @@
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-	-- TODO seems to be broken
-	ignore_install = { "haskell" },
+    ensure_installed = "all",
     highlight = {
-        enable = true, -- false will disable the whole extension
+        enable = true -- false will disable the whole extension
     },
-		indent = {
-			enable = true
-	  },
+    -- indent = {enable = true, disable = {"python", "html", "javascript"}},
+    indent = {enable = true},
     playground = {
         enable = true,
         disable = {},
@@ -15,12 +12,10 @@ require'nvim-treesitter.configs'.setup {
         persist_queries = false -- Whether the query persists across vim sessions
     },
     autotag = {enable = true},
-    incremental_selection = {
-        enable = true,
-        keymaps = {init_selection = "vi", node_incremental = "n", scope_incremental = "s", node_decremental = "nd"}
-    },
-    rainbow = {enable = true}
-    -- refactor = {highlight_definitions = {enable = true}}
+    rainbow = {enable = true},
+    context_commentstring = {enable = true, config = {javascriptreact = {style_element = '{/*%s*/}'}}},
+		refactor = {
+			highlight_definitions = { enable = true },
+			highlight_current_scope = { enable = true }
+		}
 }
-
-

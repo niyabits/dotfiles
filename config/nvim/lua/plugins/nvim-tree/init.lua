@@ -1,3 +1,5 @@
+vim.g.nvim_tree_follow = 1 -- 0 by default, this option allows the cursor to be updated when entering a buffer
+
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 vim.g.nvim_tree_bindings = {
 	-- mappings

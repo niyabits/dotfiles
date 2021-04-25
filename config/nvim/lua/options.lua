@@ -26,7 +26,6 @@ vim.o.t_Co = "256" 									-- Support 256 colors
 vim.o.conceallevel = 0 							-- So that I can see `` in markdown files
 vim.cmd('set ts=2') 								-- Insert 2 spaces for a tab
 vim.cmd('set sw=2') 								-- Change the number of space characters inserted for indentation
-vim.bo.expandtab = true 						-- Converts tabs to spaces
 vim.bo.smartindent = true 					-- Makes indenting smart
 vim.wo.cursorline = true 						-- Enable highlighting of the current line
 vim.o.showtabline = 2 							-- Always show tabs
@@ -38,6 +37,14 @@ vim.o.updatetime = 300 							-- Faster completion
 vim.o.timeoutlen = 100 							-- By default timeoutlen is 1000 ms
 vim.o.clipboard = "unnamedplus" 		-- Copy paste between vim and everything else
 vim.cmd('set colorcolumn=99999') 		-- Fix Vim Indentline 
-
+vim.o.shiftwidth = 2
+-- vim.bo.expandtab = true 						-- Converts tabs to spaces
 vim.cmd("filetype plugin on")				-- Auto Indentation Levels 
 vim.cmd("filetype indent off") 			-- Auto Indentation Levels
+
+vim.bo.copyindent = true
+vim.bo.shiftwidth = 4
+vim.bo.tabstop = 4
+vim.bo.softtabstop = 4
+vim.bo.autoindent = true
+vim.bo.smartindent = true

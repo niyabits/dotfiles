@@ -19,6 +19,7 @@ require('plugins/bookmarks')
 require('plugins/indentline')
 require('plugins/closetag')
 require('plugins/autopairs')
+require('plugins/hop')
 
 -- Language Servers
 require('lsp/init')
@@ -29,4 +30,6 @@ require('lsp/efm-general-ls')
 require('lsp/css')
 require('lsp/html')
 require('lsp/prisma')
+require('lsp/python')
+require('lsp/lua-ls')
 -- Get Prisma LSP Working
